@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FOCUSGUARD | Track. Block. Focus.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">F</span><div><strong>FOCUSGUARD</strong><small>Track. Block. Focus.</small></div></div>
+      <div class="side-label">WORKSPACE</div>
+      <a class="nav active" href="#dashboard">▦ <span>Dashboard</span></a>
+      <a class="nav" href="#focus">◷ <span>Focus session</span></a>
+      <a class="nav" href="#blocklist">⊘ <span>Distraction list</span></a>
+      <a class="nav" href="#insights">▥ <span>Insights</span></a>
+      <div class="sidebar-bottom"><div class="privacy-icon">✓</div><strong>Your focus, your rules</strong><p>Your demo data stays in this browser.</p></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><span class="eyebrow">YOUR PERSONAL FOCUS SPACE</span><h1>Make room for deep work.</h1><p class="sub">Small, focused sessions add up to big progress.</p></div><div class="date-pill" id="todayLabel">TODAY</div></header>
+      <section class="stats-grid" id="dashboard">
+        <article class="stat-card"><div class="stat-top"><span>FOCUS TIME TODAY</span><span class="stat-icon purple">◷</span></div><div class="stat-number"><span id="todayMinutes">0</span><small> min</small></div><div class="stat-note">Your focused time adds up</div></article>
+        <article class="stat-card"><div class="stat-top"><span>SESSIONS COMPLETED</span><span class="stat-icon green">✓</span></div><div class="stat-number" id="sessionCount">0</div><div class="stat-note">One session at a time</div></article>
+        <article class="stat-card"><div class="stat-top"><span>DAILY GOAL</span><span class="stat-icon orange">◎</span></div><div class="stat-number"><span id="goalProgress">0</span><small>%</small></div><div class="progress"><span id="goalBar"></span></div><div class="stat-note"><span id="goalMinutes">0</span> of <span id="goalTarget">120</span> minutes</div></article>
+      </section>
+      <section class="content-grid">
+        <article class="panel timer-panel" id="focus">
+          <div class="panel-heading"><div><span class="eyebrow">FOCUS MODE</span><h2>Time to concentrate</h2></div><span class="live-dot">READY WHEN YOU ARE</span></div>
+          <div class="timer-wrap"><div class="timer-ring" id="timerRing"><div class="timer-inner"><span id="timerDisplay">25:00</span><small id="timerStatus">MINUTES OF FOCUS</small></div></div></div>
+          <div class="timer-settings"><label for="duration">Session length</label><select id="duration"><option value="15">15 minutes</option><option value="25" selected>25 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select><label class="strict-toggle"><input id="strictMode" type="checkbox"> <span>Strict Mode</span><small>10-second cooldown to reset</small></label></div>
+          <div class="timer-actions"><button class="btn primary" id="startBtn">▶ Start focus</button><button class="btn secondary" id="resetBtn">↻ Reset</button></div>
+          <p class="helper" id="timerMessage">Tip: choose one task and silence notifications before starting.</p>
+        </article>
+        <article class="panel" id="blocklist">
+          <div class="panel-heading"><div><span class="eyebrow">DISTRACTION CONTROL</span><h2>Your distraction list</h2></div><span class="round-icon">⊘</span></div>
+          <p class="panel-copy">Add websites you want to avoid during focus time. In this prototype, the list is a reminder, not a system-level website blocker.</p>
+          <form id="siteForm" class="add-site"><input id="siteInput" type="text" placeholder="e.g. instagram.com" aria-label="Website to add" required><button class="btn primary" type="submit">Add</button></form>
+          <div class="site-list" id="siteList"></div>
+          <div class="notice"><span>ⓘ</span><p><strong>Prototype note</strong><br>Actual blocking needs a browser extension with user permission.</p></div>
+        </article>
+      </section>
+      <section class="panel insights-panel" id="insights">
+        <div class="panel-heading"><div><span class="eyebrow">YOUR PROGRESS</span><h2>Focus insights</h2></div><span class="streak-badge">✦ Keep going</span></div>
+        <div class="insight-grid"><div class="insight-box"><span class="insight-symbol">✦</span><div><strong id="bestSession">0 min</strong><small>Longest completed session</small></div></div><div class="insight-box"><span class="insight-symbol">◷</span><div><strong id="totalFocus">0 min</strong><small>Total focus time saved here</small></div></div><div class="insight-box"><span class="insight-symbol">♧</span><div><strong id="sitesCount">0 sites</strong><small>Distractions on your list</small></div></div></div>
+        <div class="history-heading"><strong>Recent sessions</strong><span>Saved on this device</span></div><div id="historyList" class="history-list"><div class="empty-state">Your completed focus sessions will appear here.</div></div>
+      </section>
+      <footer>FOCUSGUARD <span>•</span> Built for healthier digital habits <span class="footer-right">Prototype v1.0</span></footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
